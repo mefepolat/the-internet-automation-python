@@ -32,6 +32,6 @@ class LoginPage:
     def is_error_message_displayed(self):
         try:
             error_element = self.driver.find_element(*self.ERROR_MESSAGE)
-            return "username is invalid!" in error_element.text.lower()
+            return "your username is invalid!" in error_element.text.lower()
         except NoSuchElementException:
             return False
