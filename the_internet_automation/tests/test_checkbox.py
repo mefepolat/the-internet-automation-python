@@ -4,8 +4,6 @@ def test_toggle_checkboxes(driver):
     page = CheckboxPage(driver)
     page.load()
 
-    initial_2 = page.is_checkbox_selected(page.CHECKBOX2)
-
     # Toggle checkbox 1
     initial_1 = page.is_checkbox_selected(page.CHECKBOX1)
     page.toggle_checkbox(page.CHECKBOX1)
