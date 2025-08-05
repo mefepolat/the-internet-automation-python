@@ -1,5 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class LoginPage:
@@ -28,6 +30,9 @@ class LoginPage:
 
     def is_success_message_displayed(self):
         try:
+            WebDriverWait(self.driver, 5).until(
+                EC.presence_of_element_located(self.SUCCESS_MESSAGE)
+            )
             element = self.driver.find_element(*self.SUCCESS_MESSAGE)
             return "You logged into a secure area!" in element.text
         except NoSuchElementException:
