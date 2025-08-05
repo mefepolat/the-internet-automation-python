@@ -27,7 +27,11 @@ class LoginPage:
         self.driver.find_element(*self.LOGIN_BUTTON).click()
 
     def is_success_message_displayed(self):
-        return "You logged into a secure area!" in self.driver.page_source.lower()
+        try:
+            element = self.driver.find_element(*self.SUCCESS_MESSAGE)
+            return "You logged into a secure area!" in element.text
+        except NoSuchElementException:
+            return False
 
     def is_error_message_displayed(self):
         try:
