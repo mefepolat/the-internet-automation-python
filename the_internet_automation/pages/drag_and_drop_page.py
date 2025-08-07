@@ -30,3 +30,4 @@ class DragAndDropPage:
         source = self.driver.find_element(*self.COLUMN_A)
         target = self.driver.find_element(*self.COLUMN_B)
         self.driver.execute_script(drag_and_drop_script, source, target)
+
